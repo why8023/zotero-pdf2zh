@@ -17,7 +17,8 @@ RUN apt-get update && \
 #    pip config set global.extra-index-url "https://pypi.tuna.tsinghua.edu.cn/simple" && \
     uv pip install --system -U flask waitress pypdf
 
-ADD "${ZOTERO_PDF2ZH_SERVER_FILE_DOWNLOAD_URL}" /app/
+# ADD "${ZOTERO_PDF2ZH_SERVER_FILE_DOWNLOAD_URL}" /app/
+COPY server.py /app/
 # fix bug in server.py for run in Linux
 RUN sed -i '/path = path\.replace/ s/ #//' /app/server.py
 

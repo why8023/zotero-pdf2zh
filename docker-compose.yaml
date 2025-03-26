@@ -4,7 +4,7 @@ services:
             context: .
             dockerfile: Dockerfile
             args:
-                - ZOTERO_PDF2ZH_FROM_IMAGE=byaidu/pdf2zh:1.9.5
+                - ZOTERO_PDF2ZH_FROM_IMAGE=byaidu/pdf2zh:latest
                 - ZOTERO_PDF2ZH_SERVER_FILE_DOWNLOAD_URL=https://raw.githubusercontent.com/guaguastandup/zotero-pdf2zh/refs/tags/v2.2.3/server.py
         container_name: zotero-pdf2zh
         restart: unless-stopped
@@ -14,5 +14,7 @@ services:
             - TZ=Asia/Shanghai
             - HF_ENDPOINT=https://hf-mirror.com
         volumes:
-            - ./zotero-pdf2zh/translated:/app/translated
-            - ./zotero-pdf2zh/config.json:/app/config.json
+            - ./translated:/app/translated
+            - ./config.json:/app/config.json
+            - ./fonts:/app/fonts
+
