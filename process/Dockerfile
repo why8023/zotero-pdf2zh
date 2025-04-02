@@ -2,7 +2,7 @@ FROM byaidu/pdf2zh:latest
 
 WORKDIR /app
 
-COPY main.py config.json /app/
+COPY main.py organize_pdf.py config.json /app/
 
 RUN pip install --global -U pypdf
 

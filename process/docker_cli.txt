@@ -1,0 +1,5 @@
+docker run --rm -v .\translated:/app/pdf why/pdf2zh:latest python main.py --input /app/pdf/peters_2018_deep_contextualized_word_representations.pdf --output /app/pdf --babeldoc --service google
+
+
+# docker 构建
+docker build -t why/pdf2zh:latest .
